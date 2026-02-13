@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #e8e8ec;
+}
+
+::selection {
+  background-color: rgba(80, 104, 164, 0.4);
+  color: #ffffff;
+}
+
+/* ─── Mesh Background ─── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+      at 20% 30%,
+      rgba(80, 104, 164, 0.07) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 80% 70%,
+      rgba(142, 124, 180, 0.05) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* ─── Glass Materials ─── */
+.glass {
+  background: rgba(10, 10, 12, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-frosted {
+  background: rgba(20, 20, 24, 0.8);
+  backdrop-filter: blur(40px) saturate(1.2);
+  -webkit-backdrop-filter: blur(40px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Liquid Glass ─── */
+.liquid-glass {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(80, 104, 164, 0.08) 0%,
+    rgba(142, 124, 180, 0.05) 50%,
+    rgba(80, 104, 164, 0.08) 100%
+  );
+  backdrop-filter: blur(40px) saturate(1.8) brightness(1.1);
+  -webkit-backdrop-filter: blur(40px) saturate(1.8) brightness(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.03) 30%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+/* ─── Gradient Button ─── */
+.btn-gradient {
+  background-size: 280% auto;
+  background-image: linear-gradient(
+    325deg,
+    #5068a4 0%,
+    #798bb9 55%,
+    #5068a4 90%
+  );
+  box-shadow: 0px 0px 20px rgba(80, 104, 164, 0.5),
+    0px 5px 5px -1px rgba(68, 80, 118, 0.25),
+    inset 4px 4px 8px rgba(196, 211, 255, 0.5),
+    inset -4px -4px 8px rgba(54, 63, 96, 0.35);
+  transition: background-position 0.8s ease;
+}
+
+.btn-gradient:hover {
+  background-position: right top;
+}
+
+/* ─── Gradient Separator ─── */
+.line-gradient {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(107, 132, 192, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+/* ─── Animation ─── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Prose Dark Theme ─── */
+.prose {
+  --tw-prose-body: #e8e8ec;
+  --tw-prose-headings: #ffffff;
+  --tw-prose-lead: #a5a5b0;
+  --tw-prose-links: #6b84c0;
+  --tw-prose-bold: #ffffff;
+  --tw-prose-counters: #7e7e8c;
+  --tw-prose-bullets: #5a5a68;
+  --tw-prose-hr: #1e1e24;
+  --tw-prose-quotes: #ccccd4;
+  --tw-prose-quote-borders: #8e7cb4;
+  --tw-prose-captions: #7e7e8c;
+  --tw-prose-code: #b8c5e3;
+  --tw-prose-pre-code: #ccccd4;
+  --tw-prose-pre-bg: #0a0a0c;
+  --tw-prose-th-borders: #2a2a32;
+  --tw-prose-td-borders: #1e1e24;
+}
+
+.prose a {
+  color: #6b84c0;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.prose a:hover {
+  color: #8fa5d4;
+  text-decoration: underline;
+}
+
+.prose strong {
+  color: #ffffff;
+}
+
+.prose h2 {
+  border-bottom: 1px solid #1e1e24;
+  padding-bottom: 12px;
+}
+
+.prose code:not(pre code) {
+  background: #141418;
+  border: 1px solid #1e1e24;
+  color: #b8c5e3;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: var(--font-mono), monospace;
+}
+
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+.prose pre {
+  background: #0a0a0c;
+  border: 1px solid #1e1e24;
+  border-radius: 12px;
+  font-family: var(--font-mono), monospace;
+}
+
+.prose blockquote {
+  border-left-color: #8e7cb4;
+  background: rgba(36, 30, 58, 0.3);
+  border-radius: 0 8px 8px 0;
+  padding: 4px 16px;
+  font-style: normal;
+}
+
+.prose blockquote p {
+  color: #ccccd4;
+}
+
+.prose table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose thead th {
+  background: #141418;
+  color: #a5a5b0;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  border-bottom-color: #2a2a32;
+  white-space: nowrap;
+}
+
+.prose tbody td {
+  border-bottom-color: #1e1e24;
+}
+
+.prose tbody tr:hover {
+  background: rgba(10, 10, 12, 0.5);
+}
+
+.prose ul:has(input[type="checkbox"]) {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose li > input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #5068a4;
+}

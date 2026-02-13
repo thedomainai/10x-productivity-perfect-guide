@@ -1,0 +1,185 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { phases } from "@/lib/phases";
+import { getPhaseContent } from "@/lib/content";
+import MarkdownContent from "@/components/MarkdownContent";
+
+export function generateStaticParams() {
+  return phases.map((phase) => ({ slug: phase.slug }));
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await props.params;
+  const phase = phases.find((p) => p.slug === slug);
+  if (!phase) return {};
+  return {
+    title: `${phase.phase}: ${phase.title} — 10x Your Productivity`,
+    description: phase.description,
+  };
+}
+
+export default async function PhasePage(props: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await props.params;
+  const phase = phases.find((p) => p.slug === slug);
+  if (!phase) notFound();
+
+  const content = getPhaseContent(slug);
+  const currentIndex = phases.findIndex((p) => p.slug === slug);
+  const prevPhase = currentIndex > 0 ? phases[currentIndex - 1] : null;
+  const nextPhase =
+    currentIndex < phases.length - 1 ? phases[currentIndex + 1] : null;
+
+  const mainPhases = phases.filter((p) => p.phase !== "Appendix");
+
+  return (
+    <div className="py-8 lg:py-12 px-6">
+      <div className="max-w-3xl mx-auto">
+        {/* Progress Steps */}
+        <div className="flex items-center gap-1 mb-10 overflow-x-auto pb-2">
+          {mainPhases.map((p, idx) => (
+            <div key={p.slug} className="flex items-center gap-1 shrink-0">
+              <Link
+                href={`/phases/${p.slug}`}
+                title={`${p.phase}: ${p.title}`}
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-150
+                  ${
+                    p.slug === slug
+                      ? "bg-[#5068a4] text-white ring-2 ring-[#445076] ring-offset-2 ring-offset-[#000000]"
+                      : idx <= currentIndex
+                      ? "bg-[#1c2035] text-[#6b84c0] hover:bg-[#292f47]"
+                      : "bg-[#141418] text-[#3d3d48] hover:bg-[#1e1e24]"
+                  }`}
+              >
+                {idx}
+              </Link>
+              {idx < mainPhases.length - 1 && (
+                <div
+                  className={`w-6 lg:w-10 h-px ${
+                    idx < currentIndex ? "bg-[#445076]" : "bg-[#1e1e24]"
+                  }`}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Content */}
+        <MarkdownContent content={content} />
+
+        {/* Prev / Next Navigation */}
+        <nav className="mt-16 pt-8 border-t border-[#1e1e24] flex justify-between gap-4">
+          <div className="min-w-0">
+            {prevPhase ? (
+              <Link
+                href={`/phases/${prevPhase.slug}`}
+                className="group inline-flex flex-col items-start"
+              >
+                <span className="text-sm text-[#5a5a68] mb-1 flex items-center gap-1">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                  Previous
+                </span>
+                <span className="font-medium text-[#6b84c0] group-hover:text-[#8fa5d4] transition-colors truncate">
+                  {prevPhase.phase}: {prevPhase.title}
+                </span>
+              </Link>
+            ) : (
+              <Link
+                href="/"
+                className="group inline-flex flex-col items-start"
+              >
+                <span className="text-sm text-[#5a5a68] mb-1 flex items-center gap-1">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                  Back
+                </span>
+                <span className="font-medium text-[#6b84c0] group-hover:text-[#8fa5d4] transition-colors">
+                  Overview
+                </span>
+              </Link>
+            )}
+          </div>
+          <div className="min-w-0 text-right">
+            {nextPhase ? (
+              <Link
+                href={`/phases/${nextPhase.slug}`}
+                className="group inline-flex flex-col items-end"
+              >
+                <span className="text-sm text-[#5a5a68] mb-1 flex items-center gap-1">
+                  Next
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </span>
+                <span className="font-medium text-[#6b84c0] group-hover:text-[#8fa5d4] transition-colors truncate">
+                  {nextPhase.phase}: {nextPhase.title}
+                </span>
+              </Link>
+            ) : (
+              <Link
+                href="/"
+                className="group inline-flex flex-col items-end"
+              >
+                <span className="text-sm text-[#5a5a68] mb-1 flex items-center gap-1">
+                  Back
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </span>
+                <span className="font-medium text-[#6b84c0] group-hover:text-[#8fa5d4] transition-colors">
+                  Overview
+                </span>
+              </Link>
+            )}
+          </div>
+        </nav>
+      </div>
+    </div>
+  );
+}
