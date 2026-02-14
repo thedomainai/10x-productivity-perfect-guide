@@ -10,61 +10,57 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        {/* Hero + Mesh Gradient */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `
-              radial-gradient(ellipse 80% 60% at 50% 0%, rgba(80, 104, 164, 0.2) 0%, transparent 70%),
-              radial-gradient(at 20% 30%, rgba(80, 104, 164, 0.12) 0%, transparent 50%),
-              radial-gradient(at 80% 70%, rgba(142, 124, 180, 0.1) 0%, transparent 50%)
-            `,
-          }}
-        />
-
-        <div className="relative max-w-4xl mx-auto px-6 py-24 lg:py-32">
-          <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-light tracking-[-1.5px] leading-[1.1] text-white mb-4">
-            10x Your Productivity
+      <header className="border-b border-black">
+        <div className="max-w-4xl mx-auto px-6 md:px-16 py-16 lg:py-24">
+          <div className="flex justify-between items-baseline mb-6">
+            <span className="text-sm font-bold tracking-widest uppercase text-slate-500">
+              Second Brain // Guide
+            </span>
+            <span className="text-sm text-slate-400">February 2026</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-serif font-light text-slate-900 mb-4">
+            10x Your <span className="italic">Productivity</span>
           </h1>
-          <p className="text-lg lg:text-xl text-[#7e7e8c] mb-12 max-w-2xl">
-            Perfect Guide of Cursor × Claude Code
+          <p className="text-lg text-slate-500 max-w-2xl mb-10">
+            Cursor × Claude Code で AI を Second Brain として使いこなす完全ガイド。
+            <br />
+            Phase 0-5 を順に進め、AI が自律的に動く仕組みを構築する。
           </p>
 
-          {/* Liquid Glass Formula Card */}
-          <div className="liquid-glass rounded-2xl p-6 lg:p-8 mb-12 max-w-xl">
-            <p className="text-[13px] text-[#5a5a68] mb-4 font-semibold uppercase tracking-[2px]">
+          {/* Core Principle Card */}
+          <div className="card p-6 lg:p-8 max-w-xl mb-10">
+            <p className="text-xs uppercase tracking-wider text-slate-400 mb-3 font-semibold">
               Core Principle
             </p>
-            <p className="text-xl lg:text-2xl font-mono font-medium text-[#e8e8ec] leading-relaxed">
+            <p className="text-xl lg:text-2xl font-serif text-slate-800 leading-relaxed">
               AI Output ={" "}
-              <span className="text-[#6b84c0]">Quantity</span> ×{" "}
-              <span className="text-[#ad9cce]">Precision</span>
+              <span className="text-blue-600">Quantity</span> ×{" "}
+              <span className="text-purple-600">Precision</span>
             </p>
             <div className="mt-5 grid grid-cols-2 gap-6 text-sm">
               <div>
-                <p className="text-[#6b84c0] font-semibold mb-1.5">
+                <p className="text-blue-600 font-semibold mb-1">
                   Quantity（量）
                 </p>
-                <p className="text-[#7e7e8c] leading-relaxed">
+                <p className="text-slate-500 leading-relaxed">
                   速度 × 持続時間 × 並列度
                 </p>
               </div>
               <div>
-                <p className="text-[#ad9cce] font-semibold mb-1.5">
+                <p className="text-purple-600 font-semibold mb-1">
                   Precision（精度）
                 </p>
-                <p className="text-[#7e7e8c] leading-relaxed">
+                <p className="text-slate-500 leading-relaxed">
                   Preset + Prompt
                 </p>
               </div>
             </div>
           </div>
 
-          {/* CTA — Gradient Shift Button */}
+          {/* CTA */}
           <Link
             href="/phases/phase0-setup"
-            className="btn-gradient inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg text-white font-semibold text-[15px]"
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-blue-600 text-white font-semibold text-[15px] hover:bg-blue-700 transition-colors"
           >
             Start Learning
             <svg
@@ -82,7 +78,7 @@ export default function Home() {
             </svg>
           </Link>
         </div>
-      </section>
+      </header>
 
       {/* Gradient Separator */}
       <div className="line-gradient" />
@@ -91,10 +87,10 @@ export default function Home() {
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-[28px] font-medium text-white mb-3 tracking-[-0.3px]">
+            <h2 className="text-3xl font-serif font-semibold text-slate-900 mb-3">
               Learning Path
             </h2>
-            <p className="text-[#7e7e8c] max-w-xl mx-auto text-[15px]">
+            <p className="text-slate-500 max-w-xl mx-auto text-[15px]">
               Phase 0-1 で基礎を築き、Phase 2-3 で精度の基盤を確立。Phase 4-5
               で量を最大化する。
             </p>
@@ -105,16 +101,16 @@ export default function Home() {
               <Link
                 key={phase.slug}
                 href={`/phases/${phase.slug}`}
-                className="group block glass rounded-xl p-6 transition-all duration-300 hover:border-[rgba(107,132,192,0.3)] hover:shadow-[0_0_20px_rgba(80,104,164,0.15)] hover:-translate-y-0.5"
+                className="group card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
               >
-                <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#141418] text-[#7e7e8c] border border-[#1e1e24] mb-3 group-hover:border-[rgba(107,132,192,0.3)] group-hover:text-[#6b84c0] transition-all duration-300">
+                <span className="inline-block text-xs font-medium px-2.5 py-1 rounded bg-slate-50 text-slate-500 border border-slate-200 mb-3 group-hover:border-blue-300 group-hover:text-blue-600 group-hover:bg-blue-50 transition-all duration-200">
                   {phase.phase}
                 </span>
-                <h3 className="font-medium text-white text-lg mb-1 tracking-[-0.2px]">
+                <h3 className="font-serif font-semibold text-slate-900 text-lg mb-1">
                   {phase.title}
                 </h3>
-                <p className="text-sm text-[#7e7e8c] mb-1">{phase.subtitle}</p>
-                <p className="text-sm text-[#5a5a68]">{phase.description}</p>
+                <p className="text-sm text-slate-500 mb-1">{phase.subtitle}</p>
+                <p className="text-sm text-slate-400">{phase.description}</p>
               </Link>
             ))}
           </div>
@@ -130,6 +126,12 @@ export default function Home() {
           <MarkdownContent content={contentWithoutTitle} />
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="max-w-5xl mx-auto px-6 md:px-16 py-8 border-t border-slate-200 text-xs text-slate-400 flex justify-between">
+        <p>Cursor × Claude Code Guide</p>
+        <p>Second Brain // Complete Guide</p>
+      </footer>
     </div>
   );
 }
