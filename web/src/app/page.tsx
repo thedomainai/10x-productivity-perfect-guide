@@ -34,12 +34,12 @@ export default function Home() {
             </p>
             <p className="text-xl lg:text-2xl font-serif text-slate-800 leading-relaxed">
               AI Output ={" "}
-              <span className="text-blue-600">Quantity</span> ×{" "}
+              <span className="text-[#5068a4]">Quantity</span> ×{" "}
               <span className="text-purple-600">Precision</span>
             </p>
             <div className="mt-5 grid grid-cols-2 gap-6 text-sm">
               <div>
-                <p className="text-blue-600 font-semibold mb-1">
+                <p className="text-[#5068a4] font-semibold mb-1">
                   Quantity（量）
                 </p>
                 <p className="text-slate-500 leading-relaxed">
@@ -103,7 +103,7 @@ export default function Home() {
                 href={`/phases/${phase.slug}`}
                 className="group card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
               >
-                <span className="inline-block text-xs font-medium px-2.5 py-1 rounded bg-slate-50 text-slate-500 border border-slate-200 mb-3 group-hover:border-blue-300 group-hover:text-blue-600 group-hover:bg-blue-50 transition-all duration-200">
+                <span className="inline-block text-xs font-medium px-2.5 py-1 rounded bg-slate-50 text-slate-500 border border-slate-200 mb-3 group-hover:border-blue-300 group-hover:text-[#5068a4] group-hover:bg-blue-50 transition-all duration-200">
                   {phase.phase}
                 </span>
                 <h3 className="font-serif font-semibold text-slate-900 text-lg mb-1">
