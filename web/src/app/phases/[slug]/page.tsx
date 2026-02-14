@@ -94,7 +94,7 @@ export default async function PhasePage(props: {
                   </svg>
                   Previous
                 </span>
-                <span className="font-medium text-blue-600 group-hover:text-blue-800 transition-colors truncate">
+                <span className="font-medium text-[#5068a4] group-hover:text-[#363f60] transition-colors truncate">
                   {prevPhase.phase}: {prevPhase.title}
                 </span>
               </Link>
@@ -119,7 +119,7 @@ export default async function PhasePage(props: {
                   </svg>
                   Back
                 </span>
-                <span className="font-medium text-blue-600 group-hover:text-blue-800 transition-colors">
+                <span className="font-medium text-[#5068a4] group-hover:text-[#363f60] transition-colors">
                   Overview
                 </span>
               </Link>
@@ -147,7 +147,7 @@ export default async function PhasePage(props: {
                     />
                   </svg>
                 </span>
-                <span className="font-medium text-blue-600 group-hover:text-blue-800 transition-colors truncate">
+                <span className="font-medium text-[#5068a4] group-hover:text-[#363f60] transition-colors truncate">
                   {nextPhase.phase}: {nextPhase.title}
                 </span>
               </Link>
@@ -172,7 +172,7 @@ export default async function PhasePage(props: {
                     />
                   </svg>
                 </span>
-                <span className="font-medium text-blue-600 group-hover:text-blue-800 transition-colors">
+                <span className="font-medium text-[#5068a4] group-hover:text-[#363f60] transition-colors">
                   Overview
                 </span>
               </Link>
