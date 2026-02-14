@@ -288,7 +288,7 @@ Phase 5 成熟:    AI が「自分の分身」として自律的に機能する
 Phase 0-5 をすべて完了すると、以下の状態に到達している:
 
 ```
-Phase 0  Cursor と Claude Code が動作する環境がある
+Phase 0  Cursor（エディタ）と Claude Code が動作する環境がある
 Phase 1  AI に調べさせ、書かせ、整理させることができる
 Phase 2  preset により AI が自分の業務を理解している
 Phase 3  Skills/MCP/Memory で AI の能力と記憶が拡張されている
