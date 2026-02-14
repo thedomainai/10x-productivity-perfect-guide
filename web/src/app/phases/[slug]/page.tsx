@@ -48,10 +48,10 @@ export default async function PhasePage(props: {
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-150
                   ${
                     p.slug === slug
-                      ? "bg-[#5068a4] text-white ring-2 ring-[#445076] ring-offset-2 ring-offset-[#000000]"
+                      ? "bg-blue-600 text-white ring-2 ring-blue-200 ring-offset-2 ring-offset-white"
                       : idx <= currentIndex
-                      ? "bg-[#1c2035] text-[#6b84c0] hover:bg-[#292f47]"
-                      : "bg-[#141418] text-[#3d3d48] hover:bg-[#1e1e24]"
+                      ? "bg-blue-50 text-blue-600 hover:bg-blue-100"
+                      : "bg-slate-100 text-slate-400 hover:bg-slate-200"
                   }`}
               >
                 {idx}
@@ -59,7 +59,7 @@ export default async function PhasePage(props: {
               {idx < mainPhases.length - 1 && (
                 <div
                   className={`w-6 lg:w-10 h-px ${
-                    idx < currentIndex ? "bg-[#445076]" : "bg-[#1e1e24]"
+                    idx < currentIndex ? "bg-blue-300" : "bg-slate-200"
                   }`}
                 />
               )}
@@ -71,14 +71,14 @@ export default async function PhasePage(props: {
         <MarkdownContent content={content} />
 
         {/* Prev / Next Navigation */}
-        <nav className="mt-16 pt-8 border-t border-[#1e1e24] flex justify-between gap-4">
+        <nav className="mt-16 pt-8 border-t border-slate-200 flex justify-between gap-4">
           <div className="min-w-0">
             {prevPhase ? (
               <Link
                 href={`/phases/${prevPhase.slug}`}
                 className="group inline-flex flex-col items-start"
               >
-                <span className="text-sm text-[#5a5a68] mb-1 flex items-center gap-1">
+                <span className="text-sm text-slate-400 mb-1 flex items-center gap-1">
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -94,7 +94,7 @@ export default async function PhasePage(props: {
                   </svg>
                   Previous
                 </span>
-                <span className="font-medium text-[#6b84c0] group-hover:text-[#8fa5d4] transition-colors truncate">
+                <span className="font-medium text-blue-600 group-hover:text-blue-800 transition-colors truncate">
                   {prevPhase.phase}: {prevPhase.title}
                 </span>
               </Link>
@@ -103,7 +103,7 @@ export default async function PhasePage(props: {
                 href="/"
                 className="group inline-flex flex-col items-start"
               >
-                <span className="text-sm text-[#5a5a68] mb-1 flex items-center gap-1">
+                <span className="text-sm text-slate-400 mb-1 flex items-center gap-1">
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -119,7 +119,7 @@ export default async function PhasePage(props: {
                   </svg>
                   Back
                 </span>
-                <span className="font-medium text-[#6b84c0] group-hover:text-[#8fa5d4] transition-colors">
+                <span className="font-medium text-blue-600 group-hover:text-blue-800 transition-colors">
                   Overview
                 </span>
               </Link>
@@ -131,7 +131,7 @@ export default async function PhasePage(props: {
                 href={`/phases/${nextPhase.slug}`}
                 className="group inline-flex flex-col items-end"
               >
-                <span className="text-sm text-[#5a5a68] mb-1 flex items-center gap-1">
+                <span className="text-sm text-slate-400 mb-1 flex items-center gap-1">
                   Next
                   <svg
                     className="w-4 h-4"
@@ -147,7 +147,7 @@ export default async function PhasePage(props: {
                     />
                   </svg>
                 </span>
-                <span className="font-medium text-[#6b84c0] group-hover:text-[#8fa5d4] transition-colors truncate">
+                <span className="font-medium text-blue-600 group-hover:text-blue-800 transition-colors truncate">
                   {nextPhase.phase}: {nextPhase.title}
                 </span>
               </Link>
@@ -156,7 +156,7 @@ export default async function PhasePage(props: {
                 href="/"
                 className="group inline-flex flex-col items-end"
               >
-                <span className="text-sm text-[#5a5a68] mb-1 flex items-center gap-1">
+                <span className="text-sm text-slate-400 mb-1 flex items-center gap-1">
                   Back
                   <svg
                     className="w-4 h-4"
@@ -172,7 +172,7 @@ export default async function PhasePage(props: {
                     />
                   </svg>
                 </span>
-                <span className="font-medium text-[#6b84c0] group-hover:text-[#8fa5d4] transition-colors">
+                <span className="font-medium text-blue-600 group-hover:text-blue-800 transition-colors">
                   Overview
                 </span>
               </Link>
