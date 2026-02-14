@@ -218,6 +218,7 @@ body::before {
 
 .prose blockquote p {
   color: #363f60;
+  font-size: inherit;
 }
 
 .prose table {
