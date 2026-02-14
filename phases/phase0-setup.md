@@ -95,12 +95,6 @@ Cursor（ターミナル）    → Claude Code を起動して AI に指示
 
 ## よくあるトラブル
 
-### Cursor が AI 応答を返さない
-
-- ネットワーク接続を確認
-- Settings > Models でモデルが有効になっているか確認
-- Cursor のバージョンが最新か確認
-
 ### Claude Code のインストールに失敗する
 
 ```bash
