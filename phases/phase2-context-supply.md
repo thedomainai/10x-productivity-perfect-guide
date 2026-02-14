@@ -197,10 +197,8 @@ Claude Code では `~/.claude/rules/` に Rules ファイルを配置できる�
 
 - [ ] グローバル CLAUDE.md（~/.claude/CLAUDE.md）を作成した
 - [ ] プロジェクト固有の CLAUDE.md を少なくとも 1 つ作成した
-- [ ] Cursor Rules を少なくとも 1 つ作成した
 - [ ] CLAUDE.md に役割・判断基準・プロジェクト文脈を記述した
 - [ ] Rules にアウトプット形式の具体的なルールを記述した
 - [ ] 文脈供給の有無で AI 出力の品質差を確認した
-- [ ] `@` メンションで動的にコンテキストを注入できた
 
 すべてチェックできたら → [Phase 3: Expansion](./phase3-expansion.md) へ
