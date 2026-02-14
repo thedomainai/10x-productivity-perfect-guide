@@ -37,7 +37,7 @@ export default async function PhasePage(props: {
 
   return (
     <div className="py-8 lg:py-12 px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Progress Steps */}
         <div className="flex items-center gap-1 mb-10 overflow-x-auto pb-2">
           {mainPhases.map((p, idx) => (
