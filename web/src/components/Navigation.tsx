@@ -15,7 +15,7 @@ function NavLinks({ onClick }: { onClick?: () => void }) {
         onClick={onClick}
         className={`block px-3 py-2 rounded-md text-sm transition-all duration-150 ${
           pathname === "/"
-            ? "bg-blue-50 text-blue-700 font-medium"
+            ? "bg-[#eef1f8] text-[#5068a4] font-medium"
             : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
         }`}
       >
@@ -35,7 +35,7 @@ function NavLinks({ onClick }: { onClick?: () => void }) {
           onClick={onClick}
           className={`block px-3 py-2 rounded-md text-sm transition-all duration-150 ${
             pathname === `/phases/${phase.slug}`
-              ? "bg-blue-50 text-blue-700 font-medium"
+              ? "bg-[#eef1f8] text-[#5068a4] font-medium"
               : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
           }`}
         >
