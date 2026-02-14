@@ -152,7 +152,7 @@ body::before {
 .prose code:not(pre code) {
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
-  color: #1e40af;
+  color: #363f60;
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.875em;
@@ -178,7 +178,7 @@ body::before {
 }
 
 .prose blockquote p {
-  color: #1e40af;
+  color: #363f60;
 }
 
 .prose table {
