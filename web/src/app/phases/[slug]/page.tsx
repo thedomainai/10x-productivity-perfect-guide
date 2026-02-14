@@ -48,7 +48,7 @@ export default async function PhasePage(props: {
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-150
                   ${
                     p.slug === slug
-                      ? "bg-blue-600 text-white ring-2 ring-blue-200 ring-offset-2 ring-offset-white"
+                      ? "bg-[#5068a4] text-white ring-2 ring-[#dae1f1] ring-offset-2 ring-offset-white"
                       : idx <= currentIndex
                       ? "bg-blue-50 text-blue-600 hover:bg-blue-100"
                       : "bg-slate-100 text-slate-400 hover:bg-slate-200"
