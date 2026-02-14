@@ -209,15 +209,16 @@ body::before {
 }
 
 .prose blockquote {
-  border-left-color: #5068a4;
-  background: #eef1f8;
-  border-radius: 0 8px 8px 0;
-  padding: 4px 16px;
+  border-left: 2px solid #cbd5e1;
+  background: transparent;
+  border-radius: 0;
+  padding: 0 0 0 16px;
+  margin-left: 0;
   font-style: normal;
 }
 
 .prose blockquote p {
-  color: #363f60;
+  color: #64748b;
   font-size: inherit;
 }
 
