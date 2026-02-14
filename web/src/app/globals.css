@@ -2,103 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── CSS Variables ─── */
+:root {
+  --bg-color: #fdfdfc;
+  --text-main: #1a1a1a;
+  --accent: #2563eb;
+  --muted: #64748b;
+  --border: #e2e8f0;
+}
+
 /* ─── Base ─── */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #000000;
-  color: #e8e8ec;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans), "Instrument Sans", sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif), "Crimson Pro", serif;
+  letter-spacing: -0.02em;
 }
 
 ::selection {
-  background-color: rgba(80, 104, 164, 0.4);
-  color: #ffffff;
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #1a1a1a;
 }
 
-/* ─── Mesh Background ─── */
+/* ─── Grid Background ─── */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(
-      at 20% 30%,
-      rgba(80, 104, 164, 0.07) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      at 80% 70%,
-      rgba(142, 124, 180, 0.05) 0%,
-      transparent 50%
-    );
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
   pointer-events: none;
 }
 
-/* ─── Glass Materials ─── */
-.glass {
-  background: rgba(10, 10, 12, 0.6);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+/* ─── Card ─── */
+.card {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
-.glass-frosted {
-  background: rgba(20, 20, 24, 0.8);
-  backdrop-filter: blur(40px) saturate(1.2);
-  -webkit-backdrop-filter: blur(40px) saturate(1.2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.card:hover {
+  border-color: var(--accent);
 }
 
-/* ─── Liquid Glass ─── */
-.liquid-glass {
-  position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(80, 104, 164, 0.08) 0%,
-    rgba(142, 124, 180, 0.05) 50%,
-    rgba(80, 104, 164, 0.08) 100%
-  );
-  backdrop-filter: blur(40px) saturate(1.8) brightness(1.1);
-  -webkit-backdrop-filter: blur(40px) saturate(1.8) brightness(1.1);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
+.card-clickable {
+  cursor: pointer;
 }
 
-.liquid-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.03) 30%,
-    transparent 50%
-  );
-  pointer-events: none;
+.card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* ─── Gradient Button ─── */
-.btn-gradient {
-  background-size: 280% auto;
-  background-image: linear-gradient(
-    325deg,
-    #5068a4 0%,
-    #798bb9 55%,
-    #5068a4 90%
-  );
-  box-shadow: 0px 0px 20px rgba(80, 104, 164, 0.5),
-    0px 5px 5px -1px rgba(68, 80, 118, 0.25),
-    inset 4px 4px 8px rgba(196, 211, 255, 0.5),
-    inset -4px -4px 8px rgba(54, 63, 96, 0.35);
-  transition: background-position 0.8s ease;
+/* ─── Status Pill ─── */
+.status-pill {
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.btn-gradient:hover {
-  background-position: right top;
+/* ─── Progress Bar ─── */
+.progress-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.5s ease-out;
 }
 
 /* ─── Gradient Separator ─── */
@@ -107,71 +97,65 @@ body::before {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(107, 132, 192, 0.3) 50%,
+    var(--border) 50%,
     transparent 100%
   );
 }
 
-/* ─── Animation ─── */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ─── Prose Light Theme ─── */
+.prose {
+  --tw-prose-body: #1a1a1a;
+  --tw-prose-headings: #0f172a;
+  --tw-prose-lead: #475569;
+  --tw-prose-links: #2563eb;
+  --tw-prose-bold: #0f172a;
+  --tw-prose-counters: #64748b;
+  --tw-prose-bullets: #94a3b8;
+  --tw-prose-hr: #e2e8f0;
+  --tw-prose-quotes: #334155;
+  --tw-prose-quote-borders: #2563eb;
+  --tw-prose-captions: #64748b;
+  --tw-prose-code: #1e40af;
+  --tw-prose-pre-code: #334155;
+  --tw-prose-pre-bg: #f8fafc;
+  --tw-prose-th-borders: #cbd5e1;
+  --tw-prose-td-borders: #e2e8f0;
 }
 
-/* ─── Prose Dark Theme ─── */
-.prose {
-  --tw-prose-body: #e8e8ec;
-  --tw-prose-headings: #ffffff;
-  --tw-prose-lead: #a5a5b0;
-  --tw-prose-links: #6b84c0;
-  --tw-prose-bold: #ffffff;
-  --tw-prose-counters: #7e7e8c;
-  --tw-prose-bullets: #5a5a68;
-  --tw-prose-hr: #1e1e24;
-  --tw-prose-quotes: #ccccd4;
-  --tw-prose-quote-borders: #8e7cb4;
-  --tw-prose-captions: #7e7e8c;
-  --tw-prose-code: #b8c5e3;
-  --tw-prose-pre-code: #ccccd4;
-  --tw-prose-pre-bg: #0a0a0c;
-  --tw-prose-th-borders: #2a2a32;
-  --tw-prose-td-borders: #1e1e24;
+.prose h1,
+.prose h2,
+.prose h3 {
+  font-family: var(--font-serif), "Crimson Pro", serif;
+  letter-spacing: -0.02em;
 }
 
 .prose a {
-  color: #6b84c0;
+  color: #2563eb;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .prose a:hover {
-  color: #8fa5d4;
+  color: #1d4ed8;
   text-decoration: underline;
 }
 
 .prose strong {
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .prose h2 {
-  border-bottom: 1px solid #1e1e24;
+  border-bottom: 1px solid var(--border);
   padding-bottom: 12px;
 }
 
 .prose code:not(pre code) {
-  background: #141418;
-  border: 1px solid #1e1e24;
-  color: #b8c5e3;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #1e40af;
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.875em;
-  font-family: var(--font-mono), monospace;
 }
 
 .prose code::before,
@@ -180,22 +164,21 @@ body::before {
 }
 
 .prose pre {
-  background: #0a0a0c;
-  border: 1px solid #1e1e24;
-  border-radius: 12px;
-  font-family: var(--font-mono), monospace;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
 }
 
 .prose blockquote {
-  border-left-color: #8e7cb4;
-  background: rgba(36, 30, 58, 0.3);
+  border-left-color: #2563eb;
+  background: #eff6ff;
   border-radius: 0 8px 8px 0;
   padding: 4px 16px;
   font-style: normal;
 }
 
 .prose blockquote p {
-  color: #ccccd4;
+  color: #1e40af;
 }
 
 .prose table {
@@ -205,22 +188,22 @@ body::before {
 }
 
 .prose thead th {
-  background: #141418;
-  color: #a5a5b0;
+  background: #f8fafc;
+  color: #475569;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.8125rem;
   letter-spacing: 0.05em;
-  border-bottom-color: #2a2a32;
+  border-bottom-color: #cbd5e1;
   white-space: nowrap;
 }
 
 .prose tbody td {
-  border-bottom-color: #1e1e24;
+  border-bottom-color: #e2e8f0;
 }
 
 .prose tbody tr:hover {
-  background: rgba(10, 10, 12, 0.5);
+  background: #f8fafc;
 }
 
 .prose ul:has(input[type="checkbox"]) {
@@ -230,5 +213,5 @@ body::before {
 
 .prose li > input[type="checkbox"] {
   margin-right: 8px;
-  accent-color: #5068a4;
+  accent-color: #2563eb;
 }
