@@ -86,7 +86,7 @@ Cursor（ターミナル）    → Claude Code を起動して AI に指示
 ## 0-4. セットアップの確認チェックリスト
 
 - [ ] Cursor が起動し、ファイルを開ける
-- [ ] Cursor のチャット（Cmd+L）で AI が返答する
+- [ ] Cursor のターミナル（`Ctrl+`` ）が開ける
 - [ ] Claude Code が `claude --version` で応答する
 - [ ] Claude Code で認証が完了している
 - [ ] Claude Code でファイル一覧やファイルの中身を読み取れる
