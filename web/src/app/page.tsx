@@ -60,7 +60,7 @@ export default function Home() {
           {/* CTA */}
           <Link
             href="/phases/phase0-setup"
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-blue-600 text-white font-semibold text-[15px] hover:bg-blue-700 transition-colors"
+            className="btn-primary inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg text-white font-semibold text-[15px] transition-all duration-700"
           >
             Start Learning
             <svg
