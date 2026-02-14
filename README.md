@@ -51,9 +51,9 @@ Phase 5: Autonomous      ── AI が先回りして動く仕組みを作る
 
 ### Phase 0: Setup（セットアップ）
 
-**到達状態**: Cursor と Claude Code がインストールされ、基本的な動作確認が完了している
+**到達状態**: Cursor（エディタ）と Claude Code がインストールされ、基本的な動作確認が完了している
 
-- Cursor のインストールと初期設定
+- Cursor のインストール（エディタとして使用）
 - Claude Code CLI のインストールと認証
 - 動作確認
 
