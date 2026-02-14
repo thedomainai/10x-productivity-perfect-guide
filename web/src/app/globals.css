@@ -91,6 +91,45 @@ body::before {
   transition: width 0.5s ease-out;
 }
 
+/* ─── Button: Primary (Gradient Shift) ─── */
+.btn-primary {
+  background-size: 280% auto;
+  background-image: linear-gradient(325deg, #5068a4 0%, #798bb9 55%, #5068a4 90%);
+  box-shadow: 0 0 20px rgba(80, 104, 164, 0.3),
+    0 5px 5px -1px rgba(68, 80, 118, 0.15),
+    inset 4px 4px 8px rgba(196, 211, 255, 0.4),
+    inset -4px -4px 8px rgba(54, 63, 96, 0.25);
+}
+
+.btn-primary:hover {
+  background-position: right top;
+  transform: translateY(-2px);
+}
+
+.btn-primary:focus-visible {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #5068a4;
+}
+
+.btn-primary:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+/* ─── Button: Secondary (Outline) ─── */
+.btn-secondary {
+  padding: 14px 28px;
+  border-radius: 8px;
+  color: #5068a4;
+  background: transparent;
+  border: 1px solid #d7dded;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #5068a4;
+  background: #eef1f8;
+}
+
 /* ─── Gradient Separator ─── */
 .line-gradient {
   height: 1px;
