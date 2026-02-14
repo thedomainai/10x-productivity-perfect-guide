@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Crimson_Pro, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 
-const dmSans = DM_Sans({
+const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans",
+  weight: ["300", "400", "600"],
+  variable: "--font-serif",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
+  weight: ["400", "600"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${dmSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${crimsonPro.variable} ${instrumentSans.variable} font-sans antialiased`}
       >
         <Navigation />
         <main className="lg:pl-64 min-h-screen">{children}</main>
