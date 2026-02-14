@@ -15,15 +15,15 @@ function NavLinks({ onClick }: { onClick?: () => void }) {
         onClick={onClick}
         className={`block px-3 py-2 rounded-md text-sm transition-all duration-150 ${
           pathname === "/"
-            ? "bg-[#141418] text-[#e8e8ec] font-medium"
-            : "text-[#7e7e8c] hover:bg-[#141418] hover:text-[#e8e8ec]"
+            ? "bg-blue-50 text-blue-700 font-medium"
+            : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
         }`}
       >
         Overview
       </Link>
 
       <div className="pt-5 pb-2">
-        <p className="px-3 text-[13px] font-semibold text-[#5a5a68] uppercase tracking-[2px]">
+        <p className="px-3 text-[11px] font-bold text-slate-400 uppercase tracking-[2px]">
           Phases
         </p>
       </div>
@@ -35,13 +35,11 @@ function NavLinks({ onClick }: { onClick?: () => void }) {
           onClick={onClick}
           className={`block px-3 py-2 rounded-md text-sm transition-all duration-150 ${
             pathname === `/phases/${phase.slug}`
-              ? "bg-[#141418] text-[#e8e8ec] font-medium"
-              : "text-[#7e7e8c] hover:bg-[#141418] hover:text-[#e8e8ec]"
+              ? "bg-blue-50 text-blue-700 font-medium"
+              : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
           }`}
         >
-          <span className="text-xs font-mono text-[#5a5a68] mr-2">
-            {phase.phase}
-          </span>
+          <span className="text-xs text-slate-400 mr-2">{phase.phase}</span>
           {phase.title}
         </Link>
       ))}
@@ -54,16 +52,16 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Desktop Sidebar — glass-frosted */}
-      <aside className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 glass-frosted overflow-y-auto z-30">
-        <div className="p-6 border-b border-[rgba(255,255,255,0.06)]">
+      {/* Desktop Sidebar */}
+      <aside className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 bg-white border-r border-slate-200 overflow-y-auto z-30">
+        <div className="p-6 border-b border-slate-200">
           <Link href="/">
-            <h1 className="text-lg font-medium text-white leading-tight tracking-tight">
+            <h1 className="text-lg font-serif font-semibold text-slate-900 leading-tight">
               10x Your
               <br />
               Productivity
             </h1>
-            <p className="text-xs text-[#5a5a68] mt-1.5 font-mono">
+            <p className="text-xs text-slate-400 mt-1.5 tracking-wide">
               Cursor × Claude Code
             </p>
           </Link>
@@ -73,15 +71,15 @@ export default function Navigation() {
         </div>
       </aside>
 
-      {/* Mobile Header — glass-frosted */}
-      <header className="lg:hidden sticky top-0 z-50 glass-frosted border-b border-[rgba(255,255,255,0.06)]">
+      {/* Mobile Header */}
+      <header className="lg:hidden sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
         <div className="flex items-center justify-between px-4 h-14">
-          <Link href="/" className="font-medium text-[#e8e8ec] text-sm">
+          <Link href="/" className="font-serif font-semibold text-slate-900 text-sm">
             10x Productivity
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 -mr-2 text-[#7e7e8c] hover:text-[#e8e8ec] transition-colors duration-150"
+            className="p-2 -mr-2 text-slate-500 hover:text-slate-900 transition-colors duration-150"
             aria-label="Toggle menu"
           >
             <svg
@@ -113,10 +111,10 @@ export default function Navigation() {
       {isOpen && (
         <>
           <div
-            className="lg:hidden fixed inset-0 top-14 bg-black/60 backdrop-blur-sm z-40"
+            className="lg:hidden fixed inset-0 top-14 bg-black/20 backdrop-blur-sm z-40"
             onClick={() => setIsOpen(false)}
           />
-          <div className="lg:hidden fixed left-0 right-0 top-14 z-50 glass-frosted border-b border-[rgba(255,255,255,0.06)] max-h-[70vh] overflow-y-auto">
+          <div className="lg:hidden fixed left-0 right-0 top-14 z-50 bg-white border-b border-slate-200 max-h-[70vh] overflow-y-auto shadow-lg">
             <div className="p-4">
               <NavLinks onClick={() => setIsOpen(false)} />
             </div>
