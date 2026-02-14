@@ -59,7 +59,7 @@ export default async function PhasePage(props: {
               {idx < mainPhases.length - 1 && (
                 <div
                   className={`w-6 lg:w-10 h-px ${
-                    idx < currentIndex ? "bg-blue-300" : "bg-slate-200"
+                    idx < currentIndex ? "bg-[#8fa5d4]" : "bg-slate-200"
                   }`}
                 />
               )}
