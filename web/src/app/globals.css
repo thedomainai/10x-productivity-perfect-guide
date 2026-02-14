@@ -130,7 +130,7 @@ body::before {
 }
 
 .prose a {
-  color: #2563eb;
+  color: #5068a4;
   text-decoration: none;
   transition: color 0.15s ease;
 }
@@ -170,7 +170,7 @@ body::before {
 }
 
 .prose blockquote {
-  border-left-color: #2563eb;
+  border-left-color: #5068a4;
   background: #eff6ff;
   border-radius: 0 8px 8px 0;
   padding: 4px 16px;
@@ -213,5 +213,5 @@ body::before {
 
 .prose li > input[type="checkbox"] {
   margin-right: 8px;
-  accent-color: #2563eb;
+  accent-color: #5068a4;
 }
