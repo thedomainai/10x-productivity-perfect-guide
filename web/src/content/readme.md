@@ -73,7 +73,7 @@ Phase 5: Autonomous      ── AI が先回りして動く仕組みを作る
 **到達状態**: AI が「自分の仕事の進め方」を理解している。毎回説明しなくても、自分好みのアウトプットが出る
 
 - CLAUDE.md に業務知識・判断基準を記述する
-- Cursor Rules にアウトプット形式・制約を設定する
+- Rules にアウトプット形式・制約を設定する
 - 「何を preset に書くべきか」の判断基準
 
 → [Phase 2: Context Supply](./phases/phase2-context-supply.md)
