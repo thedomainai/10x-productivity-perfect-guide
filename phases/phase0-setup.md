@@ -2,67 +2,50 @@
 
 ## 到達状態
 
-> Cursor（エディタ）と Claude Code（AI アシスタント）がインストールされ、Claude Code に指示を出せる最低限の環境が動いている。
+> エディタ（Cursor または Antigravity）と AI アシスタント（Claude Code または Gemini CLI）がインストールされ、AI に指示を出せる最低限の環境が動いている。
 
 ## 前提条件
 
 - macOS または Windows のいずれか
-- Anthropic アカウント（後の手順で作成します）
+- Google アカウント（Antigravity・Gemini CLI 用）または Anthropic アカウント（Claude Code 用）
 - プログラミング経験は不要です
 
 ---
 
-## 0-1. Cursor のインストール
+## 使用するツールの組み合わせ
 
-Cursor は、このガイドで使用するエディタ（テキスト編集・ファイル管理ソフト）です。
+このガイドでは、以下の 2 種類のツールを 1 つずつ選んでセットアップします。
 
-### 手順
+| 役割 | 選択肢 A | 選択肢 B |
+|------|----------|----------|
+| **エディタ**（ファイルの管理・閲覧） | **Cursor** | **Antigravity** |
+| **AI アシスタント**（指示を出す相手） | **Claude Code** | **Gemini CLI** |
 
-1. ブラウザで [https://cursor.com](https://cursor.com) を開きます
-2. 「Download」ボタンをクリックします
-3. ダウンロードされたファイルを開き、画面の指示に従ってインストールします
-   - **macOS**: `.dmg` ファイルを開き、Cursor アイコンを「Applications」フォルダにドラッグします
-   - **Windows**: `.exe` ファイルを実行し、「次へ」を押して進めます
-4. インストール完了後、Cursor を起動します
-
-### 動作確認
-
-- Cursor が起動し、スタート画面が表示されれば完了です
+どちらの組み合わせでも構いません。迷う場合は **Cursor + Claude Code** をおすすめします。
 
 ---
 
-## 0-2. ターミナルを開く
+## Step 1: Node.js のインストール（全員必須）
 
-ターミナルとは、文字でコンピュータに命令を送るための画面です。次の手順でインストールを行うために使用します。
+Claude Code・Gemini CLI のどちらをインストールする場合も、事前に Node.js が必要です。
 
-Cursor にはターミナルが内蔵されています。以降の操作はすべて **Cursor のターミナル**を使います。
-
-### Cursor のターミナルを開く方法
-
-1. Cursor を起動します
-2. 上部メニューの「Terminal」→「New Terminal」をクリックします
-3. 画面下部にターミナルが表示されます
-
-> ショートカット: macOS は `` Ctrl+` ``、Windows は `` Ctrl+` `` でも開けます
-
----
-
-## 0-3. Node.js のインストール
-
-Claude Code のインストールには Node.js（npm）が必要です。Node.js をインストールすると npm も一緒にインストールされます。
-
-### 手順
+### macOS の場合
 
 1. ブラウザで [https://nodejs.org/ja](https://nodejs.org/ja) を開きます
-2. 「LTS（推奨版）」と書かれたボタンをクリックしてダウンロードします
-3. ダウンロードされたファイルを開き、画面の指示に従ってインストールします
-   - **macOS**: `.pkg` ファイルを開き、「続ける」→「インストール」と進めます
-   - **Windows**: `.msi` ファイルを実行し、「Next」を押して進めます
-4. インストール完了後、**Cursor を一度終了して再起動します**（ターミナルに変更を反映させるため）
+2. **「LTS（推奨版）」** と書かれたボタンをクリックしてダウンロードします
+3. ダウンロードされた `.pkg` ファイルを開きます
+4. 「続ける」→「続ける」→「インストール」と進め、完了まで待ちます
+
+### Windows の場合
+
+1. ブラウザで [https://nodejs.org/ja](https://nodejs.org/ja) を開きます
+2. **「LTS（推奨版）」** と書かれたボタンをクリックしてダウンロードします
+3. ダウンロードされた `.msi` ファイルを開きます
+4. 「Next」を繰り返し押して進め、完了まで待ちます
 
 ### 動作確認
 
-Cursor のターミナルで以下を入力して Enter を押します。
+インストール完了後、PC を**一度再起動**してください。再起動後、次の Step で開くターミナルで以下を入力します。
 
 ```
 node --version
@@ -72,36 +55,108 @@ node --version
 
 ---
 
-## 0-4. Claude Code のインストール
+## Step 2: エディタのインストール
 
-Cursor のターミナルで以下を入力して Enter を押します。
+### 選択肢 A: Cursor
+
+#### macOS の場合
+
+1. ブラウザで [https://cursor.com](https://cursor.com) を開きます
+2. 「Download」をクリックします
+3. ダウンロードされた `.dmg` ファイルを開きます
+4. Cursor のアイコンを「Applications」フォルダにドラッグします
+5. Launchpad または Applications フォルダから Cursor を起動します
+
+#### Windows の場合
+
+1. ブラウザで [https://cursor.com](https://cursor.com) を開きます
+2. 「Download」をクリックします
+3. ダウンロードされた `.exe` ファイルを実行します
+4. 「Next」を繰り返し押して完了させます
+5. インストール後、Cursor を起動します
+
+---
+
+### 選択肢 B: Antigravity
+
+Google が提供する AI エディタです。Google アカウント（Gmail）でサインインして使います。
+
+#### macOS の場合
+
+1. ブラウザで [https://antigravity.google/download](https://antigravity.google/download) を開きます
+2. 「macOS」を選択してダウンロードします
+3. ダウンロードされたファイルを開き、インストーラーの指示に従って進めます
+4. 起動後、「Sign in with Google」から Gmail アカウントでサインインします
+
+#### Windows の場合
+
+1. ブラウザで [https://antigravity.google/download](https://antigravity.google/download) を開きます
+2. 「Windows」を選択してダウンロードします
+3. ダウンロードされた `.exe` ファイルを実行します
+4. 「Next」を繰り返し押して完了させます
+5. 起動後、「Sign in with Google」から Gmail アカウントでサインインします
+
+#### 初回セットアップの選択肢
+
+起動後にいくつか設定画面が表示されます。迷った場合は以下を選んでください。
+
+- セットアップフロー: 「新規開始」
+- エージェントの使用方法: 「レビュー駆動開発（推奨）」
+- Google 認証: Gmail アカウントでサインイン
+
+---
+
+## Step 3: ターミナルを開く
+
+ターミナルとは、文字でコンピュータに命令を送るための画面です。
+
+Step 2 でインストールしたエディタのターミナルを使います。
+
+### Cursor のターミナルを開く
+
+1. Cursor を起動します
+2. 上部メニューの「Terminal」→「New Terminal」をクリックします
+3. 画面下部にターミナルが表示されます
+
+> ショートカット: `` Ctrl+` ``（macOS・Windows 共通）
+
+### Antigravity のターミナルを開く
+
+1. Antigravity を起動します
+2. 上部メニューの「Terminal」→「New Terminal」をクリックします
+3. 画面下部にターミナルが表示されます
+
+---
+
+## Step 4: AI アシスタントのインストール
+
+### 選択肢 A: Claude Code
+
+Anthropic（Claude の開発元）が提供する AI アシスタントです。
+
+#### インストール（macOS・Windows 共通）
+
+ターミナルで以下を入力して Enter を押します。
 
 ```
 npm install -g @anthropic-ai/claude-code
 ```
 
-文字がたくさん流れたあと、プロンプト（入力できる状態）に戻れば完了です。
+文字がたくさん流れたあと、入力できる状態に戻れば完了です。
 
-### 動作確認
+#### 動作確認
 
 ```
 claude --version
 ```
 
-バージョン番号が表示されれば、インストール成功です。
+バージョン番号が表示されれば成功です。
 
----
+#### Anthropic アカウントの作成とログイン
 
-## 0-5. Anthropic アカウントの作成とログイン
+まだアカウントをお持ちでない場合は、ブラウザで [https://console.anthropic.com](https://console.anthropic.com) を開いてアカウントを作成してください。
 
-### アカウント作成（まだ持っていない場合）
-
-1. ブラウザで [https://console.anthropic.com](https://console.anthropic.com) を開きます
-2. 「Sign up」をクリックしてアカウントを作成します
-
-### ログイン
-
-Cursor のターミナルで以下を入力して Enter を押します。
+ターミナルで以下を入力して Enter を押します。
 
 ```
 claude
@@ -111,9 +166,37 @@ claude
 
 ---
 
-## 0-6. 動作確認
+### 選択肢 B: Gemini CLI
 
-ログイン後、Claude Code との会話ができる状態になります。ターミナルに以下のように入力してみてください。
+Google（Gemini の開発元）が提供する AI アシスタントです。Google アカウントで無料利用できます。
+
+#### インストール（macOS・Windows 共通）
+
+ターミナルで以下を入力して Enter を押します。
+
+```
+npm install -g @google/gemini-cli
+```
+
+文字がたくさん流れたあと、入力できる状態に戻れば完了です。
+
+#### 動作確認とログイン
+
+```
+gemini
+```
+
+初回起動時にブラウザが開き、Google アカウントのサインイン画面が表示されます。Gmail アカウントでサインインしてください。
+
+サインイン完了後、ターミナルに戻ると AI と会話できる状態になります。
+
+> 無料枠: 1 分あたり 60 リクエスト、1 日あたり 1,000 リクエストまで利用できます。
+
+---
+
+## Step 5: 動作確認
+
+ターミナルで AI アシスタントを起動し、以下のように入力してみてください。
 
 ```
 このフォルダにあるファイルを一覧してください
@@ -125,12 +208,13 @@ claude
 
 ## セットアップ完了チェックリスト
 
-- [ ] Cursor がインストールされ、起動できる
-- [ ] Cursor のターミナルが開ける
 - [ ] `node --version` でバージョン番号が表示される
-- [ ] `claude --version` でバージョン番号が表示される
-- [ ] Anthropic アカウントでのログインが完了している
-- [ ] Claude Code に話しかけて返答が返ってくる
+- [ ] エディタ（Cursor または Antigravity）が起動できる
+- [ ] エディタのターミナルが開ける
+- [ ] AI アシスタントがインストールされている
+  - Claude Code: `claude --version` でバージョン番号が表示される
+  - Gemini CLI: `gemini` でサインイン済みの状態になっている
+- [ ] AI に話しかけて返答が返ってくる
 
 すべてチェックできたら → [Phase 1: Basic I/O](./phase1-basic-io.md) へ
 
@@ -140,23 +224,31 @@ claude
 
 ### `node --version` を入力しても「コマンドが見つかりません」と表示される
 
-Node.js のインストール後に Cursor を再起動していない可能性があります。Cursor を完全に終了して再度起動してください。それでも解消しない場合は、PC 自体を再起動してください。
+Node.js インストール後に PC を再起動していない可能性があります。PC を再起動してからターミナルを開き直してください。
 
-### `npm install -g @anthropic-ai/claude-code` でエラーが出る
+### `npm install` でエラーが出る（macOS）
 
-macOS で `permission denied` と表示された場合は、以下を実行してください。
+`permission denied` と表示された場合は、先頭に `sudo` を付けて実行してください。
 
 ```
 sudo npm install -g @anthropic-ai/claude-code
+```
+
+または
+
+```
+sudo npm install -g @google/gemini-cli
 ```
 
 パスワード（PC のログインパスワード）を求められます。入力しても画面には表示されませんが、正しく入力されています。Enter を押してください。
 
 ### Claude Code の認証でエラーが出る
 
-一度ログアウトしてからやり直してください。
-
 ```
 claude auth logout
 claude
 ```
+
+### Gemini CLI でブラウザが開かない
+
+ターミナルに表示された URL をコピーして、ブラウザのアドレスバーに直接貼り付けてください。
