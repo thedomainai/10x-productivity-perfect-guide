@@ -25,27 +25,68 @@
 
 ---
 
-## Step 1: Node.js のインストール（全員必須）
+## Step 1: ターミナルを開く
 
-Claude Code・Gemini CLI のどちらをインストールする場合も、事前に Node.js が必要です。
+ターミナルとは、文字でコンピュータに命令を送るための画面です。以降の手順はすべてターミナルで行います。
 
 ### macOS の場合
 
-1. ブラウザで [https://nodejs.org/ja](https://nodejs.org/ja) を開きます
-2. **「LTS（推奨版）」** と書かれたボタンをクリックしてダウンロードします
-3. ダウンロードされた `.pkg` ファイルを開きます
-4. 「続ける」→「続ける」→「インストール」と進め、完了まで待ちます
+1. キーボードで **Command（⌘）+ Space** を押します
+2. 「ターミナル」と入力して Enter を押します
+3. 黒または白の画面が開けば完了です
 
 ### Windows の場合
 
-1. ブラウザで [https://nodejs.org/ja](https://nodejs.org/ja) を開きます
-2. **「LTS（推奨版）」** と書かれたボタンをクリックしてダウンロードします
-3. ダウンロードされた `.msi` ファイルを開きます
-4. 「Next」を繰り返し押して進め、完了まで待ちます
+1. スタートボタンを右クリックします
+2. 「ターミナル」または「Windows PowerShell」をクリックします
+3. 青または黒の画面が開けば完了です
 
-### 動作確認
+---
 
-インストール完了後、PC を**一度再起動**してください。再起動後、次の Step で開くターミナルで以下を入力します。
+## Step 2: Node.js のインストール（全員必須）
+
+Claude Code・Gemini CLI のどちらをインストールする場合も、Node.js（npm）が必要です。ターミナルからインストールします。
+
+### macOS の場合 — Homebrew 経由
+
+macOS では **Homebrew**（パッケージ管理ツール）を使うと、ターミナルだけでソフトウェアをインストールできます。
+
+#### Homebrew のインストール
+
+ターミナルに以下をコピー＆ペーストして Enter を押します。
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+途中でパスワード（PC のログインパスワード）を求められます。入力しても画面には表示されませんが、正しく入力されています。Enter を押してください。
+
+インストールが完了すると、最後に以下のようなメッセージが表示されることがあります。
+
+```
+==> Next steps:
+Run these two commands in your terminal to add Homebrew to your PATH:
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ...
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+このメッセージが表示された場合は、指示された 2 行のコマンドをそのままターミナルに入力して実行してください。
+
+#### 動作確認
+
+```
+brew --version
+```
+
+`Homebrew x.x.x` のようなバージョン番号が表示されれば成功です。
+
+#### Node.js のインストール
+
+```
+brew install node
+```
+
+#### 動作確認
 
 ```
 node --version
@@ -55,7 +96,29 @@ node --version
 
 ---
 
-## Step 2: エディタのインストール
+### Windows の場合 — winget 経由
+
+Windows 11 には **winget**（パッケージ管理ツール）が標準で搭載されています。ターミナルに以下を入力して Enter を押します。
+
+```
+winget install OpenJS.NodeJS.LTS
+```
+
+インストール中に確認画面が表示された場合は「Y」を入力して Enter を押してください。
+
+完了したら、ターミナルを**一度閉じて開き直します**。
+
+#### 動作確認
+
+```
+node --version
+```
+
+`v20.x.x` のようなバージョン番号が表示されれば成功です。
+
+---
+
+## Step 3: エディタのインストール
 
 ### 選択肢 A: Cursor
 
@@ -106,29 +169,9 @@ Google が提供する AI エディタです。Google アカウント（Gmail）
 
 ---
 
-## Step 3: ターミナルを開く
-
-ターミナルとは、文字でコンピュータに命令を送るための画面です。
-
-Step 2 でインストールしたエディタのターミナルを使います。
-
-### Cursor のターミナルを開く
-
-1. Cursor を起動します
-2. 上部メニューの「Terminal」→「New Terminal」をクリックします
-3. 画面下部にターミナルが表示されます
-
-> ショートカット: `` Ctrl+` ``（macOS・Windows 共通）
-
-### Antigravity のターミナルを開く
-
-1. Antigravity を起動します
-2. 上部メニューの「Terminal」→「New Terminal」をクリックします
-3. 画面下部にターミナルが表示されます
-
----
-
 ## Step 4: AI アシスタントのインストール
+
+以降の操作は、Step 3 でインストールしたエディタの**内蔵ターミナル**を使います。上部メニューの「Terminal」→「New Terminal」で開いてください（ショートカット: `` Ctrl+` ``）。
 
 ### 選択肢 A: Claude Code
 

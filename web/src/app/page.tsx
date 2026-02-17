@@ -24,14 +24,22 @@ export default function Home() {
       <section className="bg-slate-50 border-b border-slate-200 py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <p className="text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">Background</p>
-          <p className="text-xl text-slate-700 max-w-2xl leading-relaxed">
-            Gemini や NotebookLM はチャット欄に貼り付けたテキストしか読めない。
-            回答をコピーして自分で貼り付け、ブラウザを閉じると文脈がリセットされる。
-          </p>
-          <p className="mt-4 text-xl text-slate-700 max-w-2xl leading-relaxed">
-            Cursor × Claude Code は PC のファイルに直接アクセスし、ファイル編集・コマンド実行まで完結させる。
-            判断基準と業務知識はローカルに永続保存され、セッションをまたいで引き継がれる。
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white border border-slate-200 rounded-xl p-6">
+              <p className="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">これまで</p>
+              <p className="text-base text-slate-600 leading-relaxed">
+                Gemini や NotebookLM はチャット欄に貼り付けたテキストしか読めない。
+                回答をコピーして自分で貼り付け、ブラウザを閉じると文脈がリセットされる。
+              </p>
+            </div>
+            <div className="bg-white border border-[#5068a4] rounded-xl p-6">
+              <p className="text-xs font-bold tracking-widest uppercase text-[#5068a4] mb-3">Cursor × Claude Code</p>
+              <p className="text-base text-slate-700 leading-relaxed">
+                PC のファイルに直接アクセスし、ファイル編集・コマンド実行まで完結させる。
+                判断基準と業務知識はローカルに永続保存され、セッションをまたいで引き継がれる。
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
