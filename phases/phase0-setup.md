@@ -21,31 +21,76 @@
 | **エディタ**（ファイルの管理・閲覧） | **Cursor** | **Antigravity** |
 | **AI アシスタント**（指示を出す相手） | **Claude Code** | **Gemini CLI** |
 
-どちらの組み合わせでも構いません。迷う場合は **Cursor + Claude Code** をおすすめします。
+迷う場合は **Cursor + Claude Code** をおすすめします。
 
 ---
 
-## Step 1: ターミナルを開く
+## Step 1: エディタのインストール
 
-ターミナルとは、文字でコンピュータに命令を送るための画面です。以降の手順はすべてターミナルで行います。
+### 選択肢 A: Cursor
 
-### macOS の場合
+#### macOS の場合
 
-1. キーボードで **Command（⌘）+ Space** を押します
-2. 「ターミナル」と入力して Enter を押します
-3. 黒または白の画面が開けば完了です
+1. ブラウザで [https://cursor.com](https://cursor.com) を開きます
+2. 「Download」をクリックします
+3. ダウンロードされた `.dmg` ファイルを開きます
+4. Cursor のアイコンを「Applications」フォルダにドラッグします
+5. Launchpad または Applications フォルダから Cursor を起動します
 
-### Windows の場合
+#### Windows の場合
 
-1. スタートボタンを右クリックします
-2. 「ターミナル」または「Windows PowerShell」をクリックします
-3. 青または黒の画面が開けば完了です
+1. ブラウザで [https://cursor.com](https://cursor.com) を開きます
+2. 「Download」をクリックします
+3. ダウンロードされた `.exe` ファイルを実行します
+4. 「Next」を繰り返し押して完了させます
+5. インストール後、Cursor を起動します
 
 ---
 
-## Step 2: Node.js のインストール（全員必須）
+### 選択肢 B: Antigravity
 
-Claude Code・Gemini CLI のどちらをインストールする場合も、Node.js（npm）が必要です。ターミナルからインストールします。
+Google が提供する AI エディタです。Google アカウント（Gmail）でサインインして使います。
+
+#### macOS の場合
+
+1. ブラウザで [https://antigravity.google/download](https://antigravity.google/download) を開きます
+2. 「macOS」を選択してダウンロードします
+3. ダウンロードされたファイルを開き、インストーラーの指示に従って進めます
+4. 起動後、「Sign in with Google」から Gmail アカウントでサインインします
+
+#### Windows の場合
+
+1. ブラウザで [https://antigravity.google/download](https://antigravity.google/download) を開きます
+2. 「Windows」を選択してダウンロードします
+3. ダウンロードされた `.exe` ファイルを実行します
+4. 「Next」を繰り返し押して完了させます
+5. 起動後、「Sign in with Google」から Gmail アカウントでサインインします
+
+#### 初回セットアップの選択肢
+
+起動後にいくつか設定画面が表示されます。迷った場合は以下を選んでください。
+
+- セットアップフロー: 「新規開始」
+- エージェントの使用方法: 「レビュー駆動開発（推奨）」
+- Google 認証: Gmail アカウントでサインイン
+
+---
+
+## Step 2: ターミナルを開く
+
+ターミナルとは、文字でコンピュータに命令を送るための画面です。Step 1 でインストールしたエディタの内蔵ターミナルを使います。
+
+上部メニューの「Terminal」→「New Terminal」をクリックしてください。
+
+> ショートカット: `` Ctrl+` ``（macOS・Windows 共通）
+
+画面下部にターミナルが表示されれば完了です。以降の手順はすべてこのターミナルで行います。
+
+---
+
+## Step 3: Node.js のインストール（全員必須）
+
+Claude Code・Gemini CLI のどちらをインストールする場合も、Node.js（npm）が必要です。
 
 ### macOS の場合 — Homebrew 経由
 
@@ -106,7 +151,7 @@ winget install OpenJS.NodeJS.LTS
 
 インストール中に確認画面が表示された場合は「Y」を入力して Enter を押してください。
 
-完了したら、ターミナルを**一度閉じて開き直します**。
+完了したら、ターミナルを**一度閉じて開き直します**（上部メニューの「Terminal」→「New Terminal」）。
 
 #### 動作確認
 
@@ -118,60 +163,7 @@ node --version
 
 ---
 
-## Step 3: エディタのインストール
-
-### 選択肢 A: Cursor
-
-#### macOS の場合
-
-1. ブラウザで [https://cursor.com](https://cursor.com) を開きます
-2. 「Download」をクリックします
-3. ダウンロードされた `.dmg` ファイルを開きます
-4. Cursor のアイコンを「Applications」フォルダにドラッグします
-5. Launchpad または Applications フォルダから Cursor を起動します
-
-#### Windows の場合
-
-1. ブラウザで [https://cursor.com](https://cursor.com) を開きます
-2. 「Download」をクリックします
-3. ダウンロードされた `.exe` ファイルを実行します
-4. 「Next」を繰り返し押して完了させます
-5. インストール後、Cursor を起動します
-
----
-
-### 選択肢 B: Antigravity
-
-Google が提供する AI エディタです。Google アカウント（Gmail）でサインインして使います。
-
-#### macOS の場合
-
-1. ブラウザで [https://antigravity.google/download](https://antigravity.google/download) を開きます
-2. 「macOS」を選択してダウンロードします
-3. ダウンロードされたファイルを開き、インストーラーの指示に従って進めます
-4. 起動後、「Sign in with Google」から Gmail アカウントでサインインします
-
-#### Windows の場合
-
-1. ブラウザで [https://antigravity.google/download](https://antigravity.google/download) を開きます
-2. 「Windows」を選択してダウンロードします
-3. ダウンロードされた `.exe` ファイルを実行します
-4. 「Next」を繰り返し押して完了させます
-5. 起動後、「Sign in with Google」から Gmail アカウントでサインインします
-
-#### 初回セットアップの選択肢
-
-起動後にいくつか設定画面が表示されます。迷った場合は以下を選んでください。
-
-- セットアップフロー: 「新規開始」
-- エージェントの使用方法: 「レビュー駆動開発（推奨）」
-- Google 認証: Gmail アカウントでサインイン
-
----
-
 ## Step 4: AI アシスタントのインストール
-
-以降の操作は、Step 3 でインストールしたエディタの**内蔵ターミナル**を使います。上部メニューの「Terminal」→「New Terminal」で開いてください（ショートカット: `` Ctrl+` ``）。
 
 ### 選択肢 A: Claude Code
 
@@ -251,9 +243,9 @@ gemini
 
 ## セットアップ完了チェックリスト
 
-- [ ] `node --version` でバージョン番号が表示される
 - [ ] エディタ（Cursor または Antigravity）が起動できる
 - [ ] エディタのターミナルが開ける
+- [ ] `node --version` でバージョン番号が表示される
 - [ ] AI アシスタントがインストールされている
   - Claude Code: `claude --version` でバージョン番号が表示される
   - Gemini CLI: `gemini` でサインイン済みの状態になっている
@@ -267,7 +259,7 @@ gemini
 
 ### `node --version` を入力しても「コマンドが見つかりません」と表示される
 
-Node.js インストール後に PC を再起動していない可能性があります。PC を再起動してからターミナルを開き直してください。
+ターミナルを一度閉じて開き直してください（上部メニューの「Terminal」→「New Terminal」）。それでも解消しない場合は、エディタ自体を再起動してください。
 
 ### `npm install` でエラーが出る（macOS）
 
