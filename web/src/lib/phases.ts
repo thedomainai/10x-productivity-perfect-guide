@@ -1,5 +1,6 @@
 export interface PhaseInfo {
   slug: string;
+  href?: string;
   title: string;
   subtitle: string;
   phase: string;
@@ -55,5 +56,13 @@ export const phases: PhaseInfo[] = [
     subtitle: "上級者環境の実例",
     phase: "Appendix",
     description: "Second Brain を極限まで構築した環境",
+  },
+  {
+    slug: "appendix-proposal-autopilot",
+    href: "/appendix-autopilot",
+    title: "Proposal Autopilot",
+    subtitle: "自律提案書生成システム",
+    phase: "Appendix",
+    description: "BtoB 提案書を 70% 削減する自律駆動システムの設計",
   },
 ];

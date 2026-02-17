@@ -3,6 +3,7 @@ import path from "path";
 
 export function getPhaseContent(slug: string): string {
   const filePath = path.join(process.cwd(), "src", "content", `${slug}.md`);
+  if (!fs.existsSync(filePath)) return "";
   return fs.readFileSync(filePath, "utf-8");
 }
 

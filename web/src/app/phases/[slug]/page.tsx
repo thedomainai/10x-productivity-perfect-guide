@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { phases } from "@/lib/phases";
 import { getPhaseContent } from "@/lib/content";
@@ -26,6 +26,7 @@ export default async function PhasePage(props: {
   const { slug } = await props.params;
   const phase = phases.find((p) => p.slug === slug);
   if (!phase) notFound();
+  if (phase.href) redirect(phase.href);
 
   const content = getPhaseContent(slug);
   const currentIndex = phases.findIndex((p) => p.slug === slug);
@@ -75,7 +76,7 @@ export default async function PhasePage(props: {
           <div className="min-w-0">
             {prevPhase ? (
               <Link
-                href={`/phases/${prevPhase.slug}`}
+                href={prevPhase.href ?? `/phases/${prevPhase.slug}`}
                 className="group inline-flex flex-col items-start"
               >
                 <span className="text-sm text-slate-400 mb-1 flex items-center gap-1">
@@ -128,7 +129,7 @@ export default async function PhasePage(props: {
           <div className="min-w-0 text-right">
             {nextPhase ? (
               <Link
-                href={`/phases/${nextPhase.slug}`}
+                href={nextPhase.href ?? `/phases/${nextPhase.slug}`}
                 className="group inline-flex flex-col items-end"
               >
                 <span className="text-sm text-slate-400 mb-1 flex items-center gap-1">
